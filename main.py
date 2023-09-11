@@ -1,16 +1,13 @@
-import Map
-import Web_Cost_Index
-import Merge_Data
-import DrawMap
+import TraMap_functions
 
 # Set up DataFrame with all data
-Map
+locations, world = TraMap_functions.set_up_map_and_data()
 
 # Get data from numbeo
-Web_Cost_Index
+costs_data = TraMap_functions.get_numbeo_data()
 
 # Merge both data sets
-Merge_Data
+master = TraMap_functions.merge_data(locations, costs_data)
 
 # Draw the map in a browser
-DrawMap
+TraMap_functions.draw_map(world, master)
